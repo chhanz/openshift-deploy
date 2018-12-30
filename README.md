@@ -4,6 +4,8 @@
  - Add inventory file 
    Master node 1EA
    Worker node 2EA
+ - Compress ansible directory
+ - Add Sample War File
 
 ## Test Date
  - 2018.12.30
