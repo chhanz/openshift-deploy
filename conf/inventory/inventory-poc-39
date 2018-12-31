@@ -1,0 +1,40 @@
+[masters]
+master.poc.com
+ 
+[nodes]
+# node label check ( infra & compute & master )
+master.poc.com openshift_node_labels="{'region': 'us', 'zone': 'default'}" openshift_ip=192.168.13.181 openshift_master_cluster_hostname=master.poc.com openshift_hostname=master.poc.com
+worker1.poc.com openshift_node_labels="{'region': 'infra', 'zone': 'east'}" openshift_ip=192.168.13.182 openshift_master_cluster_hostname=worker1.poc.com openshift_hostname=worker1.poc.com
+worker2.poc.com openshift_node_labels="{'region': 'us', 'zone': 'west'}" openshift_ip=192.168.13.183 openshift_master_cluster_hostname=worker2.poc.com openshift_hostname=worker2.poc.com
+ 
+[etcd]
+master.poc.com
+ 
+[OSEv3:vars]
+openshift_deployment_type=origin
+
+# OCP Release Version Fix
+openshift_release=3.9
+
+openshift_disable_check=memory_availability,disk_availability
+ansible_service_broker_install=false
+openshift_master_cluster_public_hostname=master.poc.com
+openshift_public_hostname=master.poc.com
+
+# Openshift subdomain config
+openshift_master_default_subdomain=apps.poc.com
+
+# Metric config
+openshift_metrics_image_version=v3.9
+
+openshift_schedulable=true
+
+# All user allow
+#openshift_master_identity_providers=[{'name': 'allow_all', 'login': 'true', 'challenge': 'true', 'kind': 'AllowAllPasswordIdentityProvider'}]
+# htpasswd auth
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
+ 
+[OSEv3:children]
+masters
+nodes
+etcd
