@@ -14,7 +14,7 @@ openshift_portal_net=172.30.0.0/16
 openshift_disable_check=disk_availability,memory_availability
 
 openshift_node_groups=[{'name': 'node-config-all-in-one', 'labels': ['node-role.kubernetes.io/master=true', 'node-role.kubernetes.io/infra=true', 'node-role.kubernetes.io/compute=true']}]
-openshift_release="3.10"
+openshift_release="3.11"
 openshift_master_default_subdomain=apps.example.com
 ansible_service_broker_install=false
 
