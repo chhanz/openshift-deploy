@@ -1,5 +1,5 @@
-# Deply new-app 
-   
+# Deploy sample Application
+  
 ~~~console
 $ oc new-app wildfly:latest~. --name mysample
 $ oc logs -f bc/mysamplea
@@ -8,7 +8,7 @@ $ oc logs -f bc/mysamplea
 $ oc start-build mysample --from-file=sample.war
 ~~~
 
-
+## EXAMPLE
 ~~~sh
 [root@master sample]# oc new-app wildfly:latest~. --name mysample
 --> Found image 05e5cf6 (2 weeks old) in image stream "openshift/wildfly" under tag "latest" for "wildfly:latest"
