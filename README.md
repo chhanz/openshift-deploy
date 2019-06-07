@@ -31,7 +31,7 @@
 # Deploy sample Application
   
 ~~~console
-$ oc new-app wildfly:latest~. --name mysample
+$ oc new-app wildfly~https://github.com/chhanz/openshift-deploy --name mysample
 $ oc logs -f bc/mysamplea
 
 // New Version 
